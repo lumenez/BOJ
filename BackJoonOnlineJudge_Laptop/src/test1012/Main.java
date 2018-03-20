@@ -34,11 +34,21 @@ public class Main {
 				a[p][q] = 1;
 			}
 			
-			count[i] = a[1][1];
+			count[i] = a[0][0];
 			
-			for (int x = 1 ; x <= m ; x ++) {
-				for (int y = 1 ; y <= n ; y ++) {
-					if (x == 1 & y == 1) continue;
+			for (int x = 0 ; x < m ; x ++) {
+				for (int y = 0 ; y < n ; y ++) {
+					if (x == 0 & y == 0) continue;
+					else if (x == 0 && y > 0) {
+						if (a[x][y-1] == 0 && a[x][y] == 1) {
+							count[i]++;
+						}
+					}
+					else if (y == 0 && x > 0) {
+						if (a[x-1][y] == 0 && a[x][y] == 1) {
+							count[i]++;
+						}
+					}
 					else {
 						if (a[x][y-1] == 0 && a[x-1][y] == 0 && a[x][y] == 1) {
 							count[i]++;
