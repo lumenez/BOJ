@@ -1,6 +1,8 @@
 package test9012;
 
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
 
@@ -11,12 +13,15 @@ public class Main {
 		String answer[];
 		char a;
 		int left, right;
+		Stack<Integer> stack = new Stack<Integer>();
 		
 		string = new String();
 		T = sc.nextInt();
 		answer = new String[T+1];
 		left = 0;
 		right = 0;
+		
+		
 		
 		for (int i = 1 ; i <= T ; i ++) {
 			string = sc.next();
@@ -27,8 +32,7 @@ public class Main {
 				if (a == 40) left++;
 				else if (a == 41) right++;
 			}
-			if (left == 0 && right == 0) answer[i] = "NO";
-			else if (left == right) answer[i] = "YES";
+			if (left == right) answer[i] = "YES";
 			else answer[i] = "NO";
 			left = 0;
 			right = 0;
